@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-2000 { animation-delay: 2000ms; }
+  .animation-delay-4000 { animation-delay: 4000ms; }
+}
+
+@layer base {
+  body {
+    @apply bg-gray-50 dark:bg-gray-950;
+  }
+}
+
+/* --- KEYFRAMES FOR MOVEMENT --- */
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* ICON MOVEMENT KEYFRAMES */
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+html.dark {
+  color-scheme: dark;
+}
+@keyframes floaty {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(18px, -18px); }
+}
+
+.sphere {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+  opacity: 0.8;
+  animation: floaty 8s ease-in-out infinite;
+}
+
+.sphere--big { width: 520px; height: 520px; background: rgba(112, 74, 255, 0.55); }
+.sphere--mid { width: 430px; height: 430px; background: rgba(236, 72, 153, 0.45); }
+.sphere--small { width: 260px; height: 260px; background: rgba(59, 130, 246, 0.35); }
+
+.sphere--top-left { top: -80px; left: -90px; }
+.sphere--top-right { top: 70px; right: -120px; }
+.sphere--bottom-right { bottom: -110px; right: -90px; }
+.sphere--mid-left { top: 46%; left: -120px; }
